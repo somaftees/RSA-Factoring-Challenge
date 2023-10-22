@@ -1,28 +1,20 @@
-#!/usr/bin/python3
-
+#! /usr/bin/env python3
 from sys import argv
 
 
-def factor(v):
+def factorize():
+    with open(argv[1]) as f:
+        for number in f:
+            num = int(number)
+            flag = 0
+            for i in range(2, int(num / 2) + 1, 1):
+                if num % i == 0:
+                    print("{:d}={}*{}".format(num, num // i, i))
+                    flag = 1
+                    break
+            if flag == 0:
+                print("{:d}={}*{}".format(num, num, 1))
 
-    i = 2
 
-    if v < 2:
-        return
-    while v % i:
-        i += 1
-    print("{:.0f}={:.0f}*{:.0f}".format(v, v / i, i))
-
-if len(argv) != 2:
-    exit()
-
-try:
-    with open(argv[1]) as file:
-        line = file.readline()
-
-        while line != "":
-            v = int(line.split('\n')[0])
-            factor(v)
-            line = file.readline()
-except:
-    pass
+if __name__ == "__main__":
+    factorize()

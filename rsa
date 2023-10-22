@@ -24,5 +24,4 @@ def fc():
         pass
 
 
-
-    fc()
+fc()

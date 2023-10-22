@@ -23,4 +23,6 @@ def fc():
     except (IndexError):
         pass
 
-fc()
+
+
+    fc()

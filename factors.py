@@ -3,15 +3,15 @@
 from sys import argv
 
 
-def factorize(value):
+def factor(v):
 
     i = 2
 
-    if value < 2:
+    if v < 2:
         return
-    while value % i:
+    while v % i:
         i += 1
-    print("{:.0f}={:.0f}*{:.0f}".format(value, value / i, i))
+    print("{:.0f}={:.0f}*{:.0f}".format(v, v / i, i))
 
 
 if len(argv) != 2:
@@ -22,8 +22,8 @@ try:
         line = file.readline()
 
         while line != "":
-            value = int(line.split('\n')[0])
-            factorize(value)
+            v = int(line.split('\n')[0])
+            factor(v)
             line = file.readline()
 
 except ValueError as e:
